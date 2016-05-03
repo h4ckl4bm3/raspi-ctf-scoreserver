@@ -1,0 +1,10 @@
+---
+- name: Checkout repository
+  sudo: no
+  git: repo=https://github.com/isislab/CTFd.git dest={{ ctfd_root }}
+- name: Exec prepare.sh
+  shell: cd {{ ctfd_root }} && ./prepare.sh
+  sudo: no
+- name: Start server
+  shell: nohup python serve.py&
+  sudo: no

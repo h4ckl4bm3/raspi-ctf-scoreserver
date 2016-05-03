@@ -1,0 +1,3 @@
+---
+- include: easyctf.yml
+- include: easysaucer.yml

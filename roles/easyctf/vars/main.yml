@@ -1,0 +1,6 @@
+---
+easyctf_version: "1.4"
+easyctf_report_dir: sample-result
+easyctf_address: localhost
+easysaucer_version: "1.13"
+easysaucer_root: /home/pi/easysaucer

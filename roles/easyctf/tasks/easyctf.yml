@@ -1,0 +1,19 @@
+---
+- name: Install dependency packages
+  sudo: yes
+  apt: pkg={{item}} state=latest
+  with_items:
+    - gnuplot
+    - imagemagick
+    - apache2
+- name: Download source
+  sudo: no
+  get_url: url=http://kozos.jp/software/archive/easyctf-{{ easyctf_version }}.zip dest=/tmp
+- name: Decompress & copy source
+  sudo: no
+  shell: cd /tmp/ && unzip easyctf-{{ easyctf_version }}.zip && cp -r easyctf-{{ easyctf_version}}/* /var/lib/cgi-bin/
+- name: TODO Apache configuration
+  shell: false
+  sudo: no
+- name: Restart apache
+  service: name=apache state=restarted

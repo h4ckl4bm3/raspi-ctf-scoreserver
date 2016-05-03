@@ -1,0 +1,21 @@
+---
+- name: Install dependency packages
+  sudo: yes
+  apt: pkg={{item}} state=latest
+  with_items:
+    - freeglut3-dev
+- name: Download source
+  sudo: no
+  get_url: url=http://kozos.jp/software/archive/saucer-{{ easysaucer_version }}.zip dest={{ easysaucer_root }}
+- name: Decompress source
+  sudo: no
+  shell: unzip saucer-{{ easysaucer_version }}.zip
+- name: Build easysaucer
+  shell: cd {{ easysaucer_root }} && make
+  sudo: no
+- name: Start reporter
+  shell: cd {{ easysaucer_root }}/scripts && nohup ./reporter.pl -d {{ easyctf_report_dir }} -replay&
+  sudo: no
+- name: Start server
+  shell: cd {{ easysaucer_root }} && nohup ./saucer -h {{ easyctf_address }}&
+  sudo: no

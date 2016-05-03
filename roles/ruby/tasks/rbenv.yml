@@ -9,7 +9,7 @@
   shell: cd ~/.rbenv && src/configure && make -C src
   sudo: no
 - name: Set rbenv PATH
-  shell: grep rbenv ~/.bash_profile || echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
+  shell: grep rbenv ~/.bashrc || echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
   sudo: no
 - name: Install Ruby
   shell: export PATH="$HOME/.rbenv/bin:$PATH" && rbenv versions | grep {{ ruby_version}} || rbenv install {{ ruby_version }}

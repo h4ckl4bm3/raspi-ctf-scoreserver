@@ -1,0 +1,10 @@
+---
+- name: Install dependency packages
+  sudo: yes
+  apt: pkg={{item}} state=latest
+  with_items:
+    - build-essential
+    - libffi-dev
+    - zlib1g-dev
+    - libssl-dev
+    - libsqlite3-dev

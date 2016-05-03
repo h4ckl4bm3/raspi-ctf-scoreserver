@@ -1,0 +1,10 @@
+---
+- name: "Setup CTF score servers"
+  hosts: raspberrypi
+  user: pi
+  roles:
+    - common
+    - ruby
+    #- ctf-scoreserver
+    #- ctfd
+    #- easyctf

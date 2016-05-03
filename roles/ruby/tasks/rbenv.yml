@@ -1,0 +1,19 @@
+---
+- name: Checkout rbenv
+  sudo: no
+  git: repo=https://github.com/sstephenson/rbenv.git dest={{ rbenv_root }}
+- name: Checkout ruby-build
+  sudo: no
+  git: repo=https://github.com/sstephenson/ruby-build.git dest={{ rbenv_root }}/plugins/ruby-build
+- name: Build ruby-build
+  shell: cd ~/.rbenv && src/configure && make -C src
+  sudo: no
+- name: Set rbenv PATH
+  shell: grep rbenv ~/.bash_profile || echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
+  sudo: no
+- name: Install Ruby
+  shell: export PATH="$HOME/.rbenv/bin:$PATH" && rbenv install {{ ruby_version }}
+  sudo: no
+- name: Specify Ruby version
+  shell: export PATH="$HOME/.rbenv/bin:$PATH" && rbenv global {{ ruby_version }}
+  sudo: no

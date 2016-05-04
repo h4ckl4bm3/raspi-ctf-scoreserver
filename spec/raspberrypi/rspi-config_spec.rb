@@ -1,6 +1,9 @@
 require 'spec_helper'
 
-# TODO: correct file?
-describe file('/boot/config.txt') do
-  its(:content) { should_not match /^start_x 1/ }
+describe process("Xorg") do
+  it { should_not be_running }
+end
+
+describe file("/etc/systemd/system/autologin@.service") do
+  it { should_not exist }
 end

@@ -6,5 +6,5 @@
     - common
     - ruby
     - ctf-scoreserver
-    #- ctfd
+    - ctfd
     #- easyctf

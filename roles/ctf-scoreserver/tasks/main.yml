@@ -10,6 +10,8 @@
 - name: Exec bundle install
   shell: cd {{ ctf_scoreserver_root }} && bundle install --path ./.bundle
   sudo: no
+#- name: Kill server
+#  shell: ps ax | grep "[r]uby scoreserver.rb" && ps ax | grep "[r]uby scoreserver.rb" | awk '{print $1}' | xargs kill
 - name: Start server
   shell: (cd {{ ctf_scoreserver_root }} && nohup bundle exec ruby scoreserver.rb -o 0.0.0.0&); sleep 30
   sudo: no

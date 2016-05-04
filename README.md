@@ -18,14 +18,14 @@ CTF Score Server deploy files for Raspberry Pi
 
 5. execute below commands
 
-```
-$ bundle install
+  ```
+  $ bundle install
 
-(Debian)
-$ sudo apt-get install ansible
-(Mac)
-$ brew install ansible
-```
+  (Debian)
+  $ sudo apt-get install ansible
+  (Mac)
+  $ brew install ansible
+  ```
 
 ## setup
 
@@ -40,3 +40,8 @@ $ ansible-playbook -i production site.yml
 $ TARGET_HOST=raspberrypi rspec
 ($ TARGET_HOST=raspberrypi bundle exec rspec)
 ```
+
+## access
+
+- [ctf-scoreserver](https://github.com/yoggy/ctf-scoreserver): \<IP\>:4567
+- [ctfd](https://github.com/isislab/CTFd.git): \<IP\>:4000

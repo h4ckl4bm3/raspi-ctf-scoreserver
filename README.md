@@ -5,7 +5,7 @@ CTF Score Server deploy files for Raspberry Pi
 ## install
 
 1. setup Raspberry Pi
-2. disable GUI/Disable auto login
+2. disable GUI/disable auto login
 3. change pi user password
 4. add ssh config(like below)
 
@@ -21,7 +21,7 @@ CTF Score Server deploy files for Raspberry Pi
   ```
   $ bundle install
 
-  (Debian)
+  (Debian/Ubuntu)
   $ sudo apt-get install ansible
   (Mac)
   $ brew install ansible
